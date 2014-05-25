@@ -39,7 +39,7 @@ class ScholarSearchCommand(sublime_plugin.WindowCommand):
         self.window.run_command('hide_overlay')
 
         def on_done(ind):
-            bib = articles[ind].as_citation()
+            bib = articles[ind].as_citation()+'\n'
             self.window.active_view().run_command('put_bibtex_entry',{'entry':bib}) 
 
         title_array = [[article.attrs['title'][0],article.attrs['byline'][0]] for article in articles]  
